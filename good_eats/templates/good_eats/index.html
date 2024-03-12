@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+<!--{% load static %}-->
 
 {% block title %}Главная{% endblock %}
 
@@ -22,11 +22,12 @@
         <div class="content_block">
             {% for recipe in recipes %}
             <div class="content_block-item">
-                <img src="{{ recipe.image.url }}" alt="item-photo">
+                <a href="{% url 'recipe' recipe.id %}"><img src="{{ recipe.image.url }}"
+                                                            alt="item-photo"></a>
                 <h4 class="item-title">{{ recipe.title }}</h4>
                 <p class="item-subtitle">{{ recipe.author }}</p>
             </div>
-            {% endfor %
+            {% endfor %}
         </div>
     </div>
 </main>

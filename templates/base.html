@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link type="text/css" href="{% static '/css/style.css' %}" rel="stylesheet">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="top_header"></div>
     <header class="header _container">
         <div class="logo">
-            <img src="{% static 'img/logo.png' %}" alt="logo_img">
+            <img src="{% static '/img/logo.png' %}" alt="logo_img">
             <h3>Отличная Еда!</h3>
         </div>
         <nav class="nav">

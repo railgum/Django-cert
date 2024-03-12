@@ -20,9 +20,9 @@ class Recipe(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     steps = models.TextField()
-    cooking_time = models.TimeField()
-    image = models.ImageField()
-    date_pub = models.DateTimeField(auto_now_add=True)
+    cooking_time = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='image/')
+    date_pub = models.DateTimeField(null=True)
     ingridients = models.ManyToManyField(Ingridient)
     categories = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
 
