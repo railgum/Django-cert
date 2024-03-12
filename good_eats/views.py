@@ -12,5 +12,5 @@ def index(request):
         'title': 'Главная',
         'recipes': recipes_for_index,
     }
-    return render(request, 'good_eats/index.html', context)
+    return render(request, 'index.html', context)
 
