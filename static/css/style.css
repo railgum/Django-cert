@@ -63,7 +63,7 @@ a {
 }
 .content_block {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template: repeat(3, 1fr / 2, 1fr);
     column-gap: 20px;
 }
 .content_block-item {
