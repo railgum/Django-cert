@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, Http404
+from .models import *
 
 
 def index(request):
-    context = {}
-    return render(request, 'index.html', context=context)
+    return HttpResponse("Страница приложения рецептов.")
+
