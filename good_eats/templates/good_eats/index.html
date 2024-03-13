@@ -4,29 +4,30 @@
 {% block title %}Главная{% endblock %}
 
 {% block main %}
-    <div class="content">
-        <div class="content_title">
-            <h1>Наши Рецепты</h1>
-            <p>Что ж поделать, коль любим мы поесть...)))</p>
-        </div>
-        <div class="content_nav">
-            <ul>
-                <li><a href="">Все</a></li>
-                <li><a href="">Первые блюда</a></li>
-                <li><a href="">Вторые блюда</a></li>
-                <li><a href="">Напитки</a></li>
-                <li><a href="">Десерты</a></li>
-            </ul>
-        </div>
-        <div class="content_block">
-            {% for recipe in recipes %}
-            <div class="content_block-item">
-                <a href="{% url 'recipe' recipe.id %}"><img src="{{ recipe.image.url }}"
-                                                            alt="item-photo"></a>
-                <h4 class="item-title">{{ recipe.title }}</h4>
-                <p class="item-subtitle">{{ recipe.author }}</p>
-            </div>
-            {% endfor %}
-        </div>
+<div class="content">
+    <div class="content_title">
+        <h1>Приятного аппетита!</h1>
+        <p>Главное - мера...)))</p>
     </div>
+    <div class="content_nav">
+        <ul>
+            <li><a href="">Все</a></li>
+            <li><a href="">Первые блюда</a></li>
+            <li><a href="">Вторые блюда</a></li>
+            <li><a href="">Напитки</a></li>
+            <li><a href="">Десерты</a></li>
+        </ul>
+    </div>
+    <div class="content_block">
+        {% for recipe in recipes %}
+        <div class="content_block-item">
+            <a href="{% url 'recipe' recipe.id %}"><img src="{{ recipe.image.url }}"
+                                                        alt="item-photo" width="200"
+                                                        height="200"></a>
+            <h4 class="item-title">{{ recipe.title }}</h4>
+            <p class="item-subtitle">{{ recipe.author }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

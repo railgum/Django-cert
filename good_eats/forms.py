@@ -17,13 +17,13 @@ class RecipeForm(forms.ModelForm):
             'categories',
         )
         labels = {
-            'author': 'автор',
-            'title': 'название',
-            'image': 'изображение',
-            'description': 'описание',
-            'steps': 'шаги приготовления',
-            'cooking_time': 'время приготовления',
-            'date_pub': 'дата публикации',
-            'ingridients': 'ингридиенты(если несколько - зажмите Ctrl)',
-            'categories': 'категория',
+            'author': 'Автор',
+            'title': 'Название',
+            'image': 'Изображение',
+            'description': 'Описание',
+            'steps': 'Шаги приготовления',
+            'cooking_time': 'Время приготовления',
+            'date_pub': 'Дата публикации',
+            'ingridients': 'Ингридиенты(если несколько - зажмите Ctrl)',
+            'categories': 'Категория',
         }

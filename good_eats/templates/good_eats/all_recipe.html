@@ -4,16 +4,21 @@
 
 {% block main %}
 <div class="recipes">
+    <div class="content_title">
+        <h1>Наши Рецепты</h1>
+        <p>Что ж поделать, коль любим мы поесть...)))</p>
+    </div>
     {% for recipe in recipes %}
     <div class="recipe__item">
         <img src="{{ recipe.image.url }}">
         <div class="recipe__item_text">
-            <p class="recipe_title">{{ recipe.title }}</p>
-            <p class="recipe_subtitle">{{ recipe.description }}</p>
-            <p class="recipe_time">{{ recipe.cooking_time }}</p>
+            <p class="recipe_title"><span>Название: </span>{{ recipe.title }}</p>
+            <p class="recipe_subtitle"><span>Описание: </span>{{ recipe.description }}</p>
+            <p class="recipe_time"><span>Время приготовления: </span>{{ recipe.cooking_time }}</p>
             <ul class="recipe_ingridients">
+                <span>Ингредиенты: </span>
                 {% for ingredient in recipe.ingridients.all %}
-                    <li>{{ ingredient.name }}</li>
+                <li>{{ ingredient.name }}</li>
                 {% endfor %}
             </ul>
         </div>
