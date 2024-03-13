@@ -1,6 +1,9 @@
-from django.shortcuts import render, HttpResponse, Http404, get_object_or_404
+from django.shortcuts import render, HttpResponse, Http404, get_object_or_404, redirect
 from random import choice
+from django.core.files.storage import FileSystemStorage
+
 from .models import *
+from .forms import *
 
 
 def index(request):
@@ -25,8 +28,31 @@ def single_recipe(request, recipe_id):
 
 
 def add_recipe(request):
-    return HttpResponse('wow!')
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = RecipeForm()
+    context = {
+        'title': 'Добавить рецепт',
+        'form': form,
+    }
+    return render(request, 'good_eats/add_recipe_form.html', context)
 
 
 def change_recipe(request, recipe_id):
-    return HttpResponse(f'{recipe_id}')
+    old_recipe = get_object_or_404(Recipe, pk=recipe_id)
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES, instance=old_recipe)
+        if form.is_valid():
+            old_recipe = form.save()
+            return redirect('home')
+    else:
+        form = RecipeForm(instance=old_recipe)
+    context = {
+        'title': 'Изменить рецепт',
+        'form': form,
+    }
+    return render(request, 'good_eats/add_recipe_form.html', context)

@@ -1,4 +1,14 @@
-<div class="add">
-    <h1 class="add_title">Добавление рецепта</h1>
-    <form action="" class="add_form"></form>
-</div>
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main %}
+    <div class="add">
+        <h1 class="add_title">Добавление или изменение рецепта</h1>
+        <form action="" class="add_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+{% endblock %}

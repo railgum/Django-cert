@@ -17,10 +17,14 @@
         </div>
         <nav class="nav">
             <ul class="nav-header">
-                <li><a href="">Главная</a></li>
+                <li><a href="{% url 'home' %}">Главная</a></li>
                 <li><a href="">Рецепты</a></li>
-                <li><a href="">Добавить рецепт</a></li>
-                <li><a href="">Войти</a></li>
+                <li><a href="{% url 'add' %}">Добавить рецепт</a></li>
+                {% if user.is_authenticated %}
+                    <li class="last"> {{user.username}} | <a href="{% url 'users:logout' %}">Выйти</a></li>
+                {% else %}
+                    <li class="last"><a href="{% url 'users:login' %}">Войти</a> | <a href="{% url 'users:register' %}">Регистрация</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
@@ -37,9 +41,9 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a href="">Главная</a></li>
+                    <li><a href="{% url 'home' %}">Главная</a></li>
                     <li><a href="">Рецепты</a></li>
-                    <li><a href="">Добавить рецепт</a></li>
+                    <li><a href="{% url 'add' %}">Добавить рецепт</a></li>
                 </ul>
             </nav>
             <div class="footer_image">
