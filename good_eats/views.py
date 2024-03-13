@@ -1,8 +1,5 @@
 from django.shortcuts import render, HttpResponse, Http404, get_object_or_404, redirect
 from random import choice
-from django.core.files.storage import FileSystemStorage
-
-from .models import *
 from .forms import *
 
 
@@ -16,6 +13,16 @@ def index(request):
         'recipes': recipes_for_index,
     }
     return render(request, 'good_eats/index.html', context)
+
+
+def all_recipe(request):
+    recipes = Recipe.objects.all()
+
+    context = {
+        'title': 'Все рецепты',
+        'recipes': recipes,
+    }
+    return render(request, 'good_eats/all_recipe.html', context)
 
 
 def single_recipe(request, recipe_id):
